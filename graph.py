@@ -22,7 +22,9 @@ class Graph():
         # sorted by weight with ties broken by x and then by y.
         self.edgelist = []
         # Add the code here to fill in edgelist.
-
+        for i in range(len(range(adjmat))):
+            for j in range(len(range(adjmat[i]))):
+                self.edgelist.insert()
 
     # Dump various things from the graph.
     # DO NOT MODIFY!
@@ -64,6 +66,7 @@ class Graph():
     # Find the representative for the edge with index i.
     # Use path compression.
     def findrep(self,i) -> int:
+
         # This next line is just to make it run - remove it when you update.
         return(1)
 
