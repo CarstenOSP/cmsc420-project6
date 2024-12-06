@@ -22,9 +22,30 @@ class Graph():
         # sorted by weight with ties broken by x and then by y.
         self.edgelist = []
         # Add the code here to fill in edgelist.
-        for i in range(len(range(adjmat))):
-            for j in range(len(range(adjmat[i]))):
-                self.edgelist.insert()
+        for i in range(len(adjmat)):
+            for j in range(i, len(adjmat[i])):
+                if adjmat[i][j]:
+                    k = 0
+                    insert = False
+                    x_tie = False
+                    y_tie = False
+                    while not (insert and x_tie and y_tie) and k < len(self.edgelist):
+                        if adjmat[self.edgelist[k][0]][self.edgelist[k][1]] > adjmat[i][j]:
+                            insert = True
+                            x_tie = True
+                            y_tie = True
+                        elif adjmat[self.edgelist[k][0]][self.edgelist[k][1]] == adjmat[i][j]:
+                            insert = True
+                            if self.edgelist[k][0] > i:
+                                x_tie = True
+                                y_tie = True
+                            elif self.edgelist[k][1] == i:
+                                x_tie = True
+                                if self.edgelist[k][1] >= j:
+                                    y_tie = True
+                        k += 1
+                    self.edgelist.insert(k, [i, j])    
+                    
 
     # Dump various things from the graph.
     # DO NOT MODIFY!
