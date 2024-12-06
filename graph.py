@@ -34,15 +34,18 @@ class Graph():
                             insert = True
                             x_tie = True
                             y_tie = True
+                            k -= 1
                         elif adjmat[self.edgelist[k][0]][self.edgelist[k][1]] == adjmat[i][j]:
                             insert = True
                             if self.edgelist[k][0] > i:
                                 x_tie = True
                                 y_tie = True
+                                k -= 1
                             elif self.edgelist[k][1] == i:
                                 x_tie = True
                                 if self.edgelist[k][1] >= j:
                                     y_tie = True
+                                    k -= 1
                         k += 1
                     self.edgelist.insert(k, [i, j])    
                     
